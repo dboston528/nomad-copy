@@ -13,7 +13,7 @@ SECRET_KEY = '^6h6_h650=!#6t24!z7tn(&6t75gctsl^fso=#^%53tyicfvq)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'nomad-site.herokuapp.com']
 
 # Application definition
 
