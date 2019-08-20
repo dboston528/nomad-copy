@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{% static 'css/googlefonts.css' %}">
+</head>
+
+<body>
+    {% block content %}
+    {% include 'partials/_navbar_blog.html' %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mb-4 mt-3 left top border padding-top-02">
+                {% for post in post_list %}
+                <h2 class="card-title brand">{{ post.title }}</h2>
+                <div class="card-body">
+                    <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{ post.content|slice:":202" }}...</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% block sidebar %}
+            {% include 'partials/_sidebar.html' %}
+            {% endblock sidebar %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

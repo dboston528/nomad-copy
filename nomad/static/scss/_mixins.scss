@@ -1,0 +1,25 @@
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// .foo {
+//     @include position(absolute, $top: 1em, $left: 50%);
+//   }
+
+// Modal Mixin
+@mixin centerer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin centerer-horizontal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
